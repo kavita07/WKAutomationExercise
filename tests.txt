@@ -1,0 +1,18 @@
+1.Verify Search field displayed
+and Verify search field having text "What needs to be done?"
+2. Verify search functionality for text "typescript"
+3. Verify React definition is displaying
+4. Verify React link is working
+
+5.Verify all links on page is displaying
+
+Negative cases
+
+1. Verify search box is not accepting invalid character like special character
+2. Verify clear complete is working for demo page
+3. Verify new window is opened when clicked on link
+4. Verify broken links on page
+
+
+
+
