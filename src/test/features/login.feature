@@ -1,5 +1,6 @@
 Feature: The TodoMVC Website
 
+  @positivecase
   Scenario Outline: As a user, I can log into the secure area
 
     Given I am on the home page
@@ -11,12 +12,12 @@ Feature: The TodoMVC Website
     |title          |header | message                        |
     |TodoMVC: React|todos  | What needs to be done?         |
 
-    # Scenario Outline: As a user, I can use search field
+    Scenario Outline: As a user, I can use search field
 
-    # Given I am on the home page
-    # When I search <text> into searchbox
-    # Then Verify search result <text>
-    # And Verify search result radio button is displayed
+    Given I am on the home page
+    When I search <text> into searchbox
+    Then Verify search result <text>
+    And Verify search result radio button is displayed
 
 
     #  Examples:
