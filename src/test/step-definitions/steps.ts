@@ -20,24 +20,30 @@ Then(/^Verify page header (.+)$/, async (header: string) => {
 });
 
 Then(/^Verify search box default text (.+)$/, async (message: string) => {
-    //await expect(HomePage.searchBox).toHaveAttribute('placeholder',message);
+    await expect(HomePage.searchBox).toHaveAttribute('placeholder',message);
 });
 
 When(/^I search (.+) into searchbox$/, async (text: string) =>{
-  
+   await HomePage.enterSearch(text);
 });
 
-When(/^$/, async (text: string) =>{
-  
+Then(/^Verify search result text (.+)$/, async (text: string) =>{
+  expect(HomePage.isSearchresultDisplayed(text)).toBeDisplayed();
+})
+
+Then(/^Verify search result radio button is displayed$/, async () => {
+    await expect(HomePage.serachResultRadioButton).toHaveAttribute('type', 'radio');
 });
 
-When(/^$/, async (text: string) =>{
-  
+When(/^I click on search result radio button$/, async () =>{
+  await HomePage.clickOnRadioButton();
 });
 
-When(/^$/, async (text: string) =>{
-  
+When(/^I click on button (.+)$/, async (label: string) =>{
+  await HomePage.clickOnButton(label);
 });
 
 
-
+Then(/^Verify search result (.+) is cleared$/, async (text: string) =>{
+    expect(HomePage.isSearchresultDisappeared(text)).not.toBeDisplayed();
+});
