@@ -15,4 +15,29 @@ Negative cases
 
 
 
+allure report configuration
+
+open cmd where you chrome.exe is and then run below command
+C:\Program Files (x86)\Google\Chrome\Application>chrome.exe --allow-file-access-from-files
+
+in VSCode run below commands where your project is located as below 
+install command line package
+
+npm i allure-commandline
+
+configured script in package.json
+
+"test": "npx wdio run wdio.conf.ts"
+"report": "allure generate allure-results --clean -o allure-report && allure open"
+
+npm run test
+npm run report
+
+once report will be opened then alayse report and click on show all button
+
+you will be navigated on suite and you can view each step
+
+
+
+
 
