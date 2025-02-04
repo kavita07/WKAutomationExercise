@@ -51,17 +51,20 @@ STEPS TO SETUP FRAMEWORK
     "report": "allure generate allure-results --clean -o allure-report && allure open"
   },
 
-5. npm install 
+5. npm install
+
     once all packages installed, node_module folder will be generated
     run scripts as mentioned in package.json file
 
-6. npm run test 
+6. npm run test
+
     (this command will execute all positive and negative cases)
     allure-result folder will be generated
 
     REPORTING
 
 7. npm run report
+
     (this command will generate allure report with graprhical represetation and BDD scenrios and all steps mentioned)
     if any error while publishing report then follow step no 8
 
@@ -79,9 +82,11 @@ STEPS TO SETUP FRAMEWORK
     6. you can explore many more like click on product defect and you will see failed tests only
 
 10. npm run test:positive
+
     to only execute positive cases
 
 11. npm run  test:negative
+
     to only execute negative cases
 
     TEST RESULT
