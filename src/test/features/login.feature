@@ -7,36 +7,38 @@ Feature: The TodoMVC Website
     Then Verify page title <title>
     And Verify page header <header>
     And Verify search box default text <message>
-   
+
     Examples:
-    |title          |header | message                        |
-    |TodoMVC: React|todos  | What needs to be done?         |
-    
-    
-    Scenario Outline: As a user, I can use search functionality
+      | title          | header | message                |
+      | TodoMVC: React | todos  | What needs to be done? |
+
+  Scenario Outline: As a user, I can use search functionality
 
     Given I am on the home page
     When I search <text> into searchbox
     Then Verify search result text <text>
     And Verify search result radio button is displayed
 
-     Examples:
-    |text           |    
-    |testing        |  
+    Examples:
+      | text    |
+      | testing |
 
-
-
-    @positivecase
-    Scenario Outline: As a user, I can clear search result
+  Scenario Outline: As a user, I can clear search result
 
     Given I am on the home page
     When I search <text> into searchbox
     And I click on search result radio button
     And I click on button <button label>
-    # Then Verify search result <text> is cleared
+    Then Verify search result is cleared
 
     Examples:
-    |text|button label|
-    |testing|Clear completed|     
+      | text    | button label    |
+      | testing | Clear completed |
 
-      
+   @positivecase
+    Scenario Outline: As a user, I can see all links on home page
+
+    Given I am on the home page
+    Then Verify home page all links text
+
+

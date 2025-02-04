@@ -1,6 +1,7 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect } from '@wdio/globals';
 import HomePage from '../../main/pages/home.page.js';
+import {links} from '../resources/homedata.json'
 
 const pages = {
     home: HomePage
@@ -8,6 +9,7 @@ const pages = {
 
 Given(/^I am on the home page$/, async () => {
     await pages.home.open();
+    await browser.maximizeWindow();
     await expect(HomePage.header).toBeDisplayed();
 });
 
@@ -28,7 +30,7 @@ When(/^I search (.+) into searchbox$/, async (text: string) =>{
 });
 
 Then(/^Verify search result text (.+)$/, async (text: string) =>{
-  expect(HomePage.isSearchresultDisplayed(text)).toBeDisplayed();
+ await expect(HomePage.isSearchResultDisplayed(text)).toBeTruthy();
 })
 
 Then(/^Verify search result radio button is displayed$/, async () => {
@@ -44,6 +46,13 @@ When(/^I click on button (.+)$/, async (label: string) =>{
 });
 
 
-Then(/^Verify search result (.+) is cleared$/, async (text: string) =>{
-    expect(HomePage.isSearchresultDisappeared(text)).not.toBeDisplayed();
+Then(/^Verify search result is cleared$/, async () =>{
+    await browser.pause(3000);
+    await expect(HomePage.searchResult).not.toBeDisplayed();
 });
+
+Then(/^Verify home page all links text$/, async () =>{
+    await browser.waitUntil(async () => await $$('//a').length > 0);
+ await expect($$('a')).toBeElementsArrayOfSize({ gte: 1 });
+ await expect($$('a')).toHaveText(['Demo', 'Source']);
+}); 

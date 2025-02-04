@@ -1,17 +1,16 @@
 import { $ } from '@wdio/globals'
 import Page from './page'
-import { clickOn, isElementDisplayed, isElementNotDisplayed, setText } from '../utils/commands'
+import { clickOn, isElementDisplayed, setText } from '../utils/commands'
 /**
  * sub page containing specific selectors and methods for a specific page
  */
 class HomePage extends Page {
-    
+
     /**
      * define selectors using getter methods
      */
-    //let map = new Map<string, number>();
     get searchBox() { return $('#todo-input'); }
-    get linkList() { return $$('//a'); }
+    get linkList() { return $$('a'); }
     get header() { return $('header h1'); }
     get btnSubmit() { return $('button[type="submit"]'); }
     get searchResult() { return $('div.view label'); }
@@ -31,14 +30,9 @@ class HomePage extends Page {
         await browser.keys("Enter");
     }
 
-    async isSearchresultDisplayed(text: string): ChainablePromiseElement {
+    async isSearchResultDisplayed(text: string): Promise<boolean> {
         const ele = `//label[text()=${text}]`;
         return isElementDisplayed($(ele));
-    }
-
-    async isSearchresultDisappeared(text: string): ChainablePromiseElement {
-        const ele = `//label[text()=${text}]`;
-        return isElementNotDisplayed($(ele));
     }
 
     async clickOnRadioButton() {
@@ -58,9 +52,8 @@ class HomePage extends Page {
      * overwrite specific options to adapt it to page object
      */
     public open() {
-    browser.maximizeWindow();
-    return super.open();
-}
+        return super.open();
+    }
 }
 
 export default new HomePage();
