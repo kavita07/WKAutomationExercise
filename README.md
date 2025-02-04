@@ -36,6 +36,13 @@ INSTALLATION
 
 STEPS TO SETUP FRAMEWORK
 
+If you already have node setup onyour system and chorme.exe then you have to run just 3 commands in your vscode terminal as follow
+1. npm install
+2. npm run test
+3. npm run report
+
+Else if you dont have nodejs vscode setup thne follow everything
+
 1. clone repo from foolowing git link
     https://github.com/kavita07/WKAutomationExercise.git
 
