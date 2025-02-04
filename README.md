@@ -59,6 +59,8 @@ STEPS TO SETUP FRAMEWORK
     (this command will execute all positive and negative cases)
     allure-result folder will be generated
 
+    REPORTING
+
 7. npm run report
     (this command will generate allure report with graprhical represetation and BDD scenrios and all steps mentioned)
     if any error while publishing report then follow step no 8
@@ -82,10 +84,25 @@ STEPS TO SETUP FRAMEWORK
 11. npm run  test:negative
     to only execute negative cases
 
-12. Test Result: 3 tests are failed 
+    TEST RESULT
+
+12. 4 tests are failed 
     (1 positive related to radio button as button type is checkbox
-    and 2 negative cases as instead of https , few links are http
-    and search box is accepting invalid chracter)
+    and 3 negative cases 
+     1.search box is accepting number 
+     2.as instead of https , few links have protocal http
+     3.when click on link , links are opening into current window
+    )
+
+    please check attache screen shot on githun
+
+    LOGS
+
+13. if you want to see detailed log of test results
+
+14. opne wdio.conf.ts search  logLevel: 
+    set value as  logLevel: 'info',
+15. Save and run -> npm run test
 
 FRAMEWORK STRUCTURE
 

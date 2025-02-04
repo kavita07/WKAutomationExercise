@@ -1,7 +1,7 @@
-Feature: The TodoMVC Website positive testing
+Feature: The TodoMVC Website Testing
 
   @positive
-  Scenario Outline: As a user, I can log into the secure area
+  Scenario Outline: As a user, I am on enablon home screen
 
     Given I am on the home page
     Then Verify page title <title>
@@ -38,10 +38,31 @@ Feature: The TodoMVC Website positive testing
       | testing | Clear completed |
 
   @positive
-  Scenario Outline: As a user, I can clear search result
+  Scenario Outline: As a user, I can REACT definition
 
     Given I am on the home page
     Then Verify React definition is displaying
+
+  @negative
+  Scenario Outline: As a user, I verify search box is not accepting numbers
+
+    Given I am on the home page
+    When I search <num> into searchbox
+    Then Verify search result should not displayed
+
+    Examples:
+      | num    |
+      | 123456 |
+
+  @negative
+  Scenario Outline: As a user, I verify links are not opening in current window
+
+    Given I am on the home page
+    When I click on link <link>
+    Then Verify page title <currentTitle>
+    Examples:
+      | link        | currentTitle  |
+      | Quick Start | TodoMVC: Reac |
 
   @negative
   Scenario Outline: As a user, I verify no broken links on page
@@ -53,6 +74,4 @@ Feature: The TodoMVC Website positive testing
   Scenario Outline: As a user, I verify no insure protocol used on the page
 
     Given I am on the home page
-    Then Verify no insecure linkes used on page
-
-
+    Then Verify no insecure links used on page

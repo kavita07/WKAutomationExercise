@@ -23,7 +23,7 @@ class HomePage extends Page {
      * a method to encapsule automation code to interact with the page
      */
 
-    async enterSearch(text: string) {
+    async enterSearch(text: string|number) {
         await setText(this.searchBox, text);
         await browser.keys("Enter");
     }
@@ -41,6 +41,12 @@ class HomePage extends Page {
         const ele = `//button[text()="${label}"]`;
         await clickOn($(ele));
     }
+
+    async clickOnLink(label: string) {
+        const ele = `//a[text()="${label}"]`;
+        await clickOn($(ele));
+    }
+
 
     async isProtocolSecure() {
         const links = $$('a');

@@ -1,6 +1,6 @@
 import {ChainablePromiseElement} from 'webdriverio'
 
-export const setText = async(element:ChainablePromiseElement,value: string)=> {
+export const setText = async(element:ChainablePromiseElement,value: string|number)=> {
    await element.setValue(value);
 }
 
