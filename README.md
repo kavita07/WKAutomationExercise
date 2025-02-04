@@ -58,21 +58,22 @@ STEPS TO SETUP FRAMEWORK
 
 6. npm run test
 
-    (this command will execute all positive and negative cases)
+    wait for terminal to show you execution
+   (this command will execute all positive and negative cases)
     allure-result folder will be generated
 
     REPORTING
 
-7. npm run report
+8. npm run report
 
     (this command will generate allure report with graprhical represetation and BDD scenrios and all steps mentioned)
     if any error while publishing report then follow step no 8
 
-8. allure report configuration
+9. allure report configuration
     open cmd where you chrome.exe is and then run below command
     C:\Program Files (x86)\Google\Chrome\Application>chrome.exe --allow-file-access-from-files
 
-9. follow step 7 , you will allure report -> 
+10. follow step 7 , you will allure report -> 
     click on show all button and click on order to see test sequestially
     1. click on suite tab
     2. click on scenari
@@ -81,17 +82,17 @@ STEPS TO SETUP FRAMEWORK
     5. For failure click on erro message, you will see detailed error or mismatch in expect
     6. you can explore many more like click on product defect and you will see failed tests only
 
-10. npm run test:positive
+11. npm run test:positive
 
     to only execute positive cases
 
-11. npm run  test:negative
+12. npm run  test:negative
 
     to only execute negative cases
 
     TEST RESULT
 
-12. 4 tests are failed 
+13. 4 tests are failed 
     (1 positive related to radio button as button type is checkbox
     and 3 negative cases 
      1.search box is accepting number 
