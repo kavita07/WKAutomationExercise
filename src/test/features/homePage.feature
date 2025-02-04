@@ -1,6 +1,6 @@
-Feature: The TodoMVC Website
+Feature: The TodoMVC Website positive testing
 
-  
+  @positive
   Scenario Outline: As a user, I can log into the secure area
 
     Given I am on the home page
@@ -12,6 +12,7 @@ Feature: The TodoMVC Website
       | title          | header | message                |
       | TodoMVC: React | todos  | What needs to be done? |
 
+  @positive
   Scenario Outline: As a user, I can use search functionality
 
     Given I am on the home page
@@ -23,6 +24,7 @@ Feature: The TodoMVC Website
       | text    |
       | testing |
 
+  @positive
   Scenario Outline: As a user, I can clear search result
 
     Given I am on the home page
@@ -35,10 +37,22 @@ Feature: The TodoMVC Website
       | text    | button label    |
       | testing | Clear completed |
 
-   @positivecase
-    Scenario Outline: As a user, I can see all links on home page
+  @positive
+  Scenario Outline: As a user, I can clear search result
 
     Given I am on the home page
-    Then Verify home page all links text
+    Then Verify React definition is displaying
+
+  @negative
+  Scenario Outline: As a user, I verify no broken links on page
+
+    Given I am on the home page
+    Then Verify no broken links on page
+
+  @negative
+  Scenario Outline: As a user, I verify no insure protocol used on the page
+
+    Given I am on the home page
+    Then Verify no insecure linkes used on page
 
 

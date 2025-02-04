@@ -8,13 +8,9 @@ export const isElementDisplayed = async(element:ChainablePromiseElement)=> {
     return  await element.isDisplayed();
 }
 
-export const isElementNotDisplayed = async(element:ChainablePromiseElement)=> {
-   //to-do
-   return  await element.isDisplayed();
-}
-
 export const getValue = async(element:ChainablePromiseElement)=> {
-   return await element.getText();
+  const value: string = await element.getText();
+   return value;
  }
 
  export const getAttribuute = async (element:ChainablePromiseElement)=> {
